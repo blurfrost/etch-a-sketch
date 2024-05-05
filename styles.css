@@ -8,20 +8,48 @@ h1 {
 }
 
 p {
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
+    margin: 4px;
+}
+
+input {
+    width: 240px;
+}
+
+#gridselection {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+}
+
+
+#gridcontainer {
+    display: flex;
+    /* arranges all containers in a column */
+    flex-direction: column;
+    /* aligns all items to the center in the main axis (vertical direction) */
+    justify-content: center;
+    /* stretches all containers to max width in cross axis (horizontal direction) */
+    align-items: stretch;
+    /* set max height and width */
+    width: 640px;
+    height: 640px;
+    /* align the container to center */
+    margin: 0 auto;
 }
 
 .container {
-    height: 40px;
-    justify-content: center;
     display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    /* sets all squares to stretch to fill container size */
+    align-items: stretch;
 }
 
 .square {
-    flex: 0 0 auto;
-    height: 40px;
-    width: 40px;
+    flex: 1 1 auto;
     border: 1px solid lightgray;
 }
 
