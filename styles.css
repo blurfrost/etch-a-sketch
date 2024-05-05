@@ -1,15 +1,14 @@
 body {
     font-family: Roboto, sans-serif;
+    text-align: center;
+    font-size: 16px;
 }
 
 h1 {
     font-size: 24px;
-    text-align: center;
 }
 
 p {
-    font-size: 16px;
-    text-align: center;
     margin: 4px;
 }
 
@@ -21,9 +20,12 @@ input {
     display: flex;
     justify-content: center;
     gap: 8px;
-    padding: 16px;
+    padding: 8px;
 }
 
+#gridsize {
+    padding: 8px 0;
+}
 
 #gridcontainer {
     display: flex;
