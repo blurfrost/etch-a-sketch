@@ -6,7 +6,7 @@ const squareInput = document.querySelector("#quantity");
 const clearButton = document.querySelector("#clear");
 
 // set initial number of squares on each side
-const gridQuantitySquares = 16;
+let gridQuantitySquares = 16;
 displayGridSize(gridQuantitySquares);
 createGrid(gridQuantitySquares);
 
@@ -31,8 +31,14 @@ function createGrid(squares) {
         for (j = 0; j < squares; j++) {
             const square = document.createElement("div");
             square.classList.add("square");
+            let darken = 0;
             square.addEventListener("mouseover", () => {
-                square.classList.add("hover");
+                // with each hover, the grid square gets gradually more black (up to an opacity of 1)
+                square.style.backgroundColor = "black";
+                if (darken < 11) {
+                    darken += 1;
+                    square.style.opacity = 0.3 + (darken - 1) * 0.07;
+                } 
             });
             container.appendChild(square);
         }
@@ -41,30 +47,26 @@ function createGrid(squares) {
 
 // event listener to change number of squares on each side of the grid, when confirm button is pressed
 confirmButton.addEventListener("click", () => {
-    newSquares = squareInput.value;
+    gridQuantitySquares = squareInput.value;
     // clear value of text box
     squareInput.value = "";
-    console.log(newSquares);
-    if (newSquares > 0 && newSquares <= 100) {
-        removeGrid(newSquares);
+    console.log(gridQuantitySquares);
+    if (gridQuantitySquares > 0 && gridQuantitySquares <= 100) {
+        restartGrid(gridQuantitySquares);
     }
     else {
-        newSquares = 0;
+        gridQuantitySquares = 0;
     }
-    displayGridSize(newSquares);
+    displayGridSize(gridQuantitySquares);
 });
 
-// function to completely delete the old grid, then regenerate a new grid based on the input in the text box
-function removeGrid(squares) {
+// function to clear the grid for repeated use
+clearButton.addEventListener("click", () => {
+    restartGrid(gridQuantitySquares);
+});
+
+// creates new grid based on input number of squares on each side
+function restartGrid(squares) {
     gridContainer.innerHTML = "";
     createGrid(squares);
 }
-
-// function to clear the grid for repeated use, which clears each square of the class "hover"
-clearButton.addEventListener("click", () => {
-    const hovers = document.querySelectorAll(".hover");
-    console.log(hovers);
-    hovers.forEach((hover) => {
-        hover.classList.remove("hover");
-    })
-});

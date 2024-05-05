@@ -55,10 +55,6 @@ input {
     border: 1px solid lightgray;
 }
 
-.hover {
-    background-color: black;
-}
-
 #clear {
     margin: 8px;
 }
