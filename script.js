@@ -47,17 +47,17 @@ function createGrid(squares) {
 
 // event listener to change number of squares on each side of the grid, when confirm button is pressed
 confirmButton.addEventListener("click", () => {
-    gridQuantitySquares = squareInput.value;
+    let newSquares = squareInput.value;
     // clear value of text box
     squareInput.value = "";
-    console.log(gridQuantitySquares);
-    if (gridQuantitySquares > 0 && gridQuantitySquares <= 100) {
-        restartGrid(gridQuantitySquares);
+    if (newSquares > 0 && newSquares <= 100) {
+        gridQuantitySquares = newSquares;
+        restartGrid(newSquares);
     }
     else {
-        gridQuantitySquares = 0;
+        newSquares = 0;
     }
-    displayGridSize(gridQuantitySquares);
+    displayGridSize(newSquares);
 });
 
 // function to clear the grid for repeated use
