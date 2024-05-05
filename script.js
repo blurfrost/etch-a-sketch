@@ -33,7 +33,7 @@ function createGrid(squares) {
             square.classList.add("square");
             let darken = 0;
             square.addEventListener("mouseover", () => {
-                // with each hover, the grid square gets gradually more black (up to an opacity of 1)
+                // with each hover, the grid square gets gradually darker (up to an opacity of 1)
                 square.style.backgroundColor = "black";
                 if (darken < 11) {
                     darken += 1;
@@ -50,10 +50,12 @@ confirmButton.addEventListener("click", () => {
     let newSquares = squareInput.value;
     // clear value of text box
     squareInput.value = "";
+    // create new grid with updated number of squares on each side if valid input
     if (newSquares > 0 && newSquares <= 100) {
         gridQuantitySquares = newSquares;
         restartGrid(newSquares);
     }
+    // invalid input, update as 0 to display error message
     else {
         newSquares = 0;
     }
