@@ -1,13 +1,30 @@
+body {
+    font-family: Roboto, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    text-align: center;
+}
+
 .container {
-    
-    height: 60px;
+    height: 40px;
     justify-content: center;
     display: flex;
 }
 
 .square {
     flex: 0 0 auto;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     border: 1px solid lightgray;
+}
+
+.hover {
+    background-color: black;
 }
