@@ -3,6 +3,7 @@ const gridContainer = document.querySelector("#gridcontainer");
 const gridSize = document.querySelector("#gridsize");
 const confirmButton = document.querySelector("#confirm");
 const squareInput = document.querySelector("#quantity");
+const clearButton = document.querySelector("#clear");
 
 // set initial number of squares on each side
 const gridQuantitySquares = 16;
@@ -58,3 +59,12 @@ function removeGrid(squares) {
     gridContainer.innerHTML = "";
     createGrid(squares);
 }
+
+// function to clear the grid for repeated use, which clears each square of the class "hover"
+clearButton.addEventListener("click", () => {
+    const hovers = document.querySelectorAll(".hover");
+    console.log(hovers);
+    hovers.forEach((hover) => {
+        hover.classList.remove("hover");
+    })
+});
